@@ -1,6 +1,7 @@
 package com.delta.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -51,6 +52,15 @@ public class SecondActivity extends Activity {
             }
         });
 
+        // Becoming an implicit intent here
+        Intent httpIntent = getIntent();
+        String action = httpIntent.getAction();
+        if(action !=null && action.equals(Intent.ACTION_VIEW)){
+            Uri data = httpIntent.getData();
+            if(data != null){
+                mSelectedView.setText(data.toString());
+            }
+        }
     }
 
     @Override

@@ -23,7 +23,15 @@
 
         </activity>
         <activity android:name=".SecondActivity"
-            android:label="@string/app_name"/>
+            android:label="@string/app_name">
+            <intent-filter>
+                <data android:scheme="http" android:host="comparethemarket.com"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+
+        </activity>
         <activity android:name=".DetailActivity"
             android:label="@string/app_name"/>
     </application>
